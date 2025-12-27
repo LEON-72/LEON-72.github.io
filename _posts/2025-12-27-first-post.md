@@ -41,6 +41,7 @@ remote_theme: pages-themes/cayman  # 初めはGitHubの公式テーマを使う�
 このファイルにはヘッダーやフッターなど、どのページでも表示したい共通部分を書きます。
 `{{ }}`の中にそれぞれのページの内容が入ります。
 例えば...
+{%  raw %}
 ```html
 <!DOCTYPE html>
 <html>
@@ -63,6 +64,7 @@ remote_theme: pages-themes/cayman  # 初めはGitHubの公式テーマを使う�
 </body>
 </html>
 ```
+{% endfor %}
 のようにすると毎回ヘッダーやフッターを書かなくて済みますね。  
 今はGitHubの公式テーマを使っていますが、こだわりたい場合はcssを書くことでデザインを整えることもできます。
 
