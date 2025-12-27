@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article>
+    <header style="border: none; text-align: left; padding: 0 0 1rem 0;">
+        <h1 style="font-size: 2.2rem; color: var(--accent-blue); margin-bottom: 0.5rem;">{{ page.title }}</h1>
+        <time style="color: #8b949e;">公開日: {{ page.date | date: "%Y年%m月%d日" }}</time>
+    </header>
+    
+    <div class="post-content" style="margin-top: 2rem;">
+        {{ content }}
+    </div>
+
+    <div style="margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+        <a href="{{ '/' | relative_url }}">← トップへ戻る</a>
+    </div>
+</article>
