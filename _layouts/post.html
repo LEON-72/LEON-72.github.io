@@ -2,16 +2,17 @@
 layout: default
 ---
 <article>
-    <header style="border: none; text-align: left; padding: 0 0 1rem 0;">
-        <h1 style="font-size: 2.2rem; color: var(--accent-blue); margin-bottom: 0.5rem;">{{ page.title }}</h1>
-        <time style="color: #8b949e;">公開日: {{ page.date | date: "%Y年%m月%d日" }}</time>
+    <header style="border-bottom: 1px solid #e1e4e8; padding-bottom: 1rem; margin-bottom: 2rem;">
+        <h1 style="font-size: 2rem; color: #0366d6; margin-bottom: 0.5rem;">{{ page.title }}</h1>
+        <div style="color: #6a737d; font-size: 0.9rem;">
+            <span>作成日: {{ page.date | date: "%Y年%m月%d日" }}</span>
+            {% if page.last_modified_at %}
+                <span style="margin-left: 15px;">最終更新日: {{ page.last_modified_at | date: "%Y年%m月%d日" }}</span>
+            {% endif %}
+        </div>
     </header>
     
-    <div class="post-content" style="margin-top: 2rem;">
+    <div class="post-content">
         {{ content }}
-    </div>
-
-    <div style="margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
-        <a href="{{ '/' | relative_url }}">← トップへ戻る</a>
     </div>
 </article>
