@@ -20,9 +20,9 @@ GitHub Pagesの存在は前から知っていて、GitHubで静的なサイト�
 リポジトリ名/
 ├─ _config.yml （サイトの設定ファイル）
 ├─ _layouts/ （共通デザインのテンプレート）
-    └─ default.html
+│   └─ default.html
 ├─ _posts/ （ブログを入れるフォルダ）
-    └─ 2025-12-27-first-post.md
+│   └─ 2025-12-27-first-post.md
 └─ index.html （トップページ）
 ```
 となっています。  
