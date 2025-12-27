@@ -18,9 +18,11 @@ body {
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 0 1.5rem;
     background-color: var(--bg-color); /* コンテンツエリアを白に */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+main.container {
     min-height: 100vh;
 }
 
@@ -76,7 +78,7 @@ a:hover { text-decoration: underline; }
     background-color: #ffffff;
     border-bottom: 1px solid #e1e4e8;
     padding: 1rem 0;
-    position: sticky; /* スクロールしても上に固定される */
+    /* position: sticky; */ /*スクロールしても上に固定される*/
     top: 0;
     z-index: 1000;
 }
@@ -101,4 +103,12 @@ a:hover { text-decoration: underline; }
 .site-nav a:hover {
     background-color: #f6f8fa;
     color: #0366d6;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 0; /* 上下に余白を持たせる */
+    color: #6a737d;   /* 文字色を少し薄くしてバランスを整える */
+    border-top: 1px solid var(--border-color); /* 必要に応じて上部に線を追加 */
+    margin-top: 2rem;
 }

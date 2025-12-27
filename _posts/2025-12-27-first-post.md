@@ -18,6 +18,7 @@ GitHub Pagesの存在は前から知っていて、GitHubで静的なサイト�
 ## トップページと言えば…
 ブログをこれから書いていくにはトップページからアクセスできるようにする必要がある。  
 フォルダ構成としては
+{% raw %}
 ```
 リポジトリ名/
 ├─ _config.yml （サイトの設定ファイル）
@@ -27,21 +28,29 @@ GitHub Pagesの存在は前から知っていて、GitHubで静的なサイト�
 │   └─ 2025-12-27-first-post.md
 └─ index.html （トップページ）
 ```
+{% endraw %}
+
 となっています。  
 今回はJekyllを使ってMarkdownで書いた記事を自動でHTMLに変換する仕組みを使っています。
 詳しくは調べてください。
 ### _config.yml
 ここではサイト名などを決めます。
+
+{% raw %}
 ```yaml
 title: My Blog
 description: 開発ログや日常の記録
 remote_theme: pages-themes/cayman  # 初めはGitHubの公式テーマを使うと良い
 ```
+{% endraw %}
+
 ### _layout/default.html
 このファイルにはヘッダーやフッターなど、どのページでも表示したい共通部分を書きます。
-`{{ }}`の中にそれぞれのページの内容が入ります。
+{% raw %}`{{ }}`{% endraw %}の中にそれぞれのページの内容が入ります。
 例えば...
-{%  raw %}
+
+
+{% raw %}
 ```html
 <!DOCTYPE html>
 <html>
@@ -64,12 +73,15 @@ remote_theme: pages-themes/cayman  # 初めはGitHubの公式テーマを使う�
 </body>
 </html>
 ```
-{% endfor %}
+{% endraw %}
+
 のようにすると毎回ヘッダーやフッターを書かなくて済みますね。  
 今はGitHubの公式テーマを使っていますが、こだわりたい場合はcssを書くことでデザインを整えることもできます。
 
 ### index.html
 トップページはこのファイルに書きます
+
+{% raw %}
 ```html
 ---
 layout: default
@@ -86,10 +98,16 @@ title: Home
   {% endfor %}
 </ul>
 ```
-このような感じで自分だけのトップページを作りましょう！　　
-※`index.html`は`_layouts/default.html`の`{{}}`内に埋め込まれるのでhtmlタグやheadタグ、bodyタグは書く必要がありません。
+{% endraw %}
+
+このような感じで自分だけのトップページを作りましょう！　
+{% raw %}   
+  ※`index.html`は`_layouts/default.html`の`{{}}`内に埋め込まれるのでhtmlタグやheadタグ、bodyタグは書く必要がありません。
+{% endraw %}
 ### _posts/2025-12-27-first-post.md
 やっとここまでたどり着きました。
+
+{% raw %}
 ```markdown
 ---
 layout: default
@@ -97,6 +115,7 @@ title: タイトル名
 ---
 ここから記事を書く
 ```
+{% endraw %}
 
 ## ブログを書くシステムが完成！
 あとは_posts/の中にどんどん記事をかけますね。  
