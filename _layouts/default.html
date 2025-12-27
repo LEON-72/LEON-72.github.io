@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title}} | {{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
     <header>
-        <h1><a href="/">{{ site.title }}</a></h1>
+        <div class="container">
+            <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+            <p>{{ site.description }}</p>
+        </div>
     </header>
 
-    <main>
+    <main class="container">
         {{ content }}
     </main>
 
     <footer>
-        <p>&copy; 2025 {{ site.title }}</p>
+        <div class="container">
+            <p>&copy; 2025 {{ site.author }}</p>
+        </div>
     </footer>
 </body>
 </html>
