@@ -4,7 +4,7 @@ title: 初めてのGitHub Pages
 date: 2025-12-17
 last_modified_at: 2025-12-27
 ---
-この投稿は**HxSコンピューター部 Advent Calendar 2025**の2日目の記事です。
+この投稿は**HxSコンピューター部 Advent Calendar 2025**の2〇日目の記事です。
 
 ## やってみたかった
 GitHub Pagesの存在は前から知っていて、GitHubで静的なサイトを作れるんだなぁと思っていた。

@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <title>{{ page.title }} | {{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header class="site-header">
+        <div class="container">
             <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-            <p style="color: #6a737d;">{{ site.description }}</p>
-        </header>
+            <nav class="site-nav">
+                <a href="{{ '/' | relative_url }}">Home</a>
+                <a href="{{ '/about.html' | relative_url }}">About</a>
+                <a href="{{ '/archive.html' | relative_url }}">記事一覧</a>
+            </nav>
+        </div>
+    </header>
 
-        <main>
-            {{ content }} </main>
+    <main class="container">
+        {{ content }}
+    </main>
 
-        <footer style="margin-top: 4rem; text-align: center; color: #6a737d; font-size: 0.9rem;">
-            <p>&copy; 2025 {{ site.title }}</p>
-        </footer>
-    </div>
+    <footer>
+        <p>&copy; 2025 {{ site.author }} All rights reserved.</p>
+    </footer>
 </body>
 </html>

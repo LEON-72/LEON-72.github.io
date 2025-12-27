@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-    max-width: 820px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
     background-color: var(--bg-color); /* コンテンツエリアを白に */
@@ -70,3 +70,35 @@ article.post-preview:hover {
 
 a { color: var(--accent-blue); text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* ヘッダー全体のスタイル */
+.site-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e1e4e8;
+    padding: 1rem 0;
+    position: sticky; /* スクロールしても上に固定される */
+    top: 0;
+    z-index: 1000;
+}
+
+/* ナビゲーションの帯 */
+.site-nav {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* リンク間の間隔 */
+}
+
+.site-nav a {
+    color: #24292e;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.site-nav a:hover {
+    background-color: #f6f8fa;
+    color: #0366d6;
+}
