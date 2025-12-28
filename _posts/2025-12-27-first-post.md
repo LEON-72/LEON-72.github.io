@@ -1,23 +1,18 @@
 ---
-layout: default
+layout: post
 title: 初めてのGitHub Pages
-date: 2025-12-17
-last_modified_at: 2025-12-27
+date: 2025-12-27
+last_modified_at: 2025-12-28
 ---
-この投稿は**HxSコンピューター部 Advent Calendar 2025**の2〇日目の記事です。
-
 ## やってみたかった
-GitHub Pagesの存在は前から知っていて、GitHubで静的なサイトを作れるんだなぁと思っていた。
+　GitHub Pagesの存在は前から知っていて、GitHubで静的なサイトを作れるんだなぁと思っていた。
 せっかくなら年越し前にやって気持ちよく今年を終わってやろうと思ったので作りました。
 
-## GitHub Pagesでサイトを公開するには
-`ユーザー名.github.io`という名前のリポジトリを作成すると`https://ユーザー名.github.io/`にアクセスすることができるようになる。  
-リポジトリの直下に`index.html`を作り、何かしら書き込むとトップページの完成！  
-そして、できたのが[こちら](https://leon-72.github.io/)となります。
+## Jekyll を活用したディレクトリ構成
+　ブログとして効率よく運用するために、今回はGitHub Pagesに標準搭載されている静的サイトジェネレーター**Jekyll**を使いました。  
+Jekyllを使用することで、ヘッダーやフッターなどの共通部分をテンプレート化やMarkdownからHTMLへの自動変換が可能になります。  
+プロジェクトの構成は以下の通りです。
 
-## トップページと言えば…
-ブログをこれから書いていくにはトップページからアクセスできるようにする必要がある。  
-フォルダ構成としては
 {% raw %}
 ```
 リポジトリ名/
@@ -29,12 +24,9 @@ GitHub Pagesの存在は前から知っていて、GitHubで静的なサイト�
 └─ index.html （トップページ）
 ```
 {% endraw %}
-
-となっています。  
-今回はJekyllを使ってMarkdownで書いた記事を自動でHTMLに変換する仕組みを使っています。
-詳しくは調べてください。
+## 各ファイルの役割
 ### _config.yml
-ここではサイト名などを決めます。
+ここではサイト名や使用するテーマを定義します。
 
 {% raw %}
 ```yaml
@@ -46,10 +38,7 @@ remote_theme: pages-themes/cayman  # 初めはGitHubの公式テーマを使う�
 
 ### _layout/default.html
 このファイルにはヘッダーやフッターなど、どのページでも表示したい共通部分を書きます。
-{% raw %}`{{ }}`{% endraw %}の中にそれぞれのページの内容が入ります。
-例えば...
-
-
+{% raw %}`{{ content }}`{% endraw %}の部分に記事の内容が流し込まれます。  
 {% raw %}
 ```html
 <!DOCTYPE html>
@@ -75,11 +64,8 @@ remote_theme: pages-themes/cayman  # 初めはGitHubの公式テーマを使う�
 ```
 {% endraw %}
 
-のようにすると毎回ヘッダーやフッターを書かなくて済みますね。  
-今はGitHubの公式テーマを使っていますが、こだわりたい場合はcssを書くことでデザインを整えることもできます。
-
 ### index.html
-トップページはこのファイルに書きます
+トップページは、_posts/にある記事を自動でリストアップするようにします。
 
 {% raw %}
 ```html
@@ -89,23 +75,44 @@ title: Home
 ---
 
 <h2>最新の記事</h2>
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <span>{{ post.date | date: "%Y/%m/%d" }}</span> - 
-      <a href="{{ post.url }}">{{ post.title }}</a>
+{% for post in site.posts limit: 1 %}
+<article class="post-preview">
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <small style="color: #6a737d;">
+        作成日: {{ post.date | date: "%Y/%m/%d" }}
+        {% if post.last_modified_at %}
+            （更新日: {{ post.last_modified_at | date: "%Y/%m/%d" }}）
+        {% endif %}
+    </small>
+    <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+    <a href="{{ post.url | relative_url }}">記事を読む →</a>
+</article>
+{% endfor %}
+
+<hr style="border: 0; border-top: 1px solid #e1e4e8; margin: 3rem 0;">
+
+<h2>以前の記事</h2>
+<ul style="list-style: none; padding: 0;">
+    {% for post in site.posts offset: 1 %}
+    <li style="margin-bottom: 1rem;">
+        <span style="color: #6a737d; margin-right: 1rem;">
+            {{ post.date | date: "%Y/%m/%d" }}
+            {% if post.last_modified_at %}
+                <span style="font-size: 0.8em;">(更新日: {{ post.last_modified_at | date: "%m/%d" }})</span>
+            {% endif %}
+        </span>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     </li>
-  {% endfor %}
+    {% endfor %}
 </ul>
 ```
 {% endraw %}
 
-このような感じで自分だけのトップページを作りましょう！　
 {% raw %}   
-  ※`index.html`は`_layouts/default.html`の`{{}}`内に埋め込まれるのでhtmlタグやheadタグ、bodyタグは書く必要がありません。
+  **Memo:**`index.html`は`_layouts/default.html`の`{{}}`内に埋め込まれるので`<html>`タグや`<head>`タグ、`<body>`タグを書く必要はありません。
 {% endraw %}
 ### _posts/2025-12-27-first-post.md
-やっとここまでたどり着きました。
+ようやく記事本文です。ファイル名は`YYYY-MM-DD-title.md`にします。
 
 {% raw %}
 ```markdown
@@ -113,10 +120,10 @@ title: Home
 layout: default
 title: タイトル名
 ---
-ここから記事を書く
+ここから記事を書きます。
 ```
 {% endraw %}
+**Memo:**本文を執筆する際に注意する点があり、コードブロックに`{{ }}`を記述する場合は`{% raw %}`と`{% endraw %}`で囲む必要があります。これを忘れるとJekyllが実行する命令と勘違いしてエラーを起こします。
 
-## ブログを書くシステムが完成！
-あとは_posts/の中にどんどん記事をかけますね。  
-Jekyllを使うのでMarkdownで書けてHTMLやCSSで整える必要が無いのもいいですね！
+## まとめ
+Jakyllを導入したことで、あとはMarkdownで記事を執筆しPushするだけでブログが更新されます。
