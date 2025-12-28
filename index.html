@@ -4,7 +4,7 @@ title: Home
 ---
 
 <h1>こんにちは！GitHub Pages へようこそ</h1>
-<p>技術ブログというよりは成長日記</p>
+
 
 <h2>最新の記事</h2>
 {% for post in site.posts limit: 1 %}
@@ -16,7 +16,7 @@ title: Home
             （更新日: {{ post.last_modified_at | date: "%Y/%m/%d" }}）
         {% endif %}
     </small>
-    <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+    <p>{{ post.excerpt }}</p>
     <a href="{{ post.url | relative_url }}">記事を読む →</a>
 </article>
 {% endfor %}
