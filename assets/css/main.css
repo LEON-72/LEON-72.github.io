@@ -18,12 +18,18 @@ body {
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 1.5rem;
     background-color: var(--bg-color); /* コンテンツエリアを白に */
+}
+
+div.container {
+    line-height: 1.0;
 }
 
 main.container {
     min-height: 100vh;
+    padding: 1rem 3rem;
+    line-height: 1.2;
+
 }
 
 /* ヘッダー */
@@ -56,6 +62,13 @@ pre {
     margin: 1.5rem 0;
 }
 
+code {
+    background-color: var(--code-bg); 
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    /* font-size: 85%; */
+}
+
 /* 記事プレビュー（トップページ） */
 article.post-preview {
     border: 1px solid var(--border-color);
@@ -65,22 +78,39 @@ article.post-preview {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
+article.post-preview h3 {
+    font-size: 35px;
+    margin: 0.2rem 0.2rem;
+}
+
 article.post-preview:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow);
 }
 
-a { color: var(--accent-blue); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a {
+    color: var(--accent-blue);
+    text-decoration: underline;
+}
+
+a:hover { 
+    text-decoration: underline;
+}
 
 /* ヘッダー全体のスタイル */
 .site-header {
     background-color: #ffffff;
     border-bottom: 1px solid #e1e4e8;
-    padding: 1rem 0;
-    /* position: sticky; */ /*スクロールしても上に固定される*/
+    padding: 0.5rem 0;
     top: 0;
     z-index: 1000;
+}
+
+.site-header p {
+    font-size: 1rem;
+    color: #6a737d;
+    margin-top: -0.5rem; /* タイトルとの間隔を詰める */
+    margin-bottom: 1rem;
 }
 
 /* ナビゲーションの帯 */
@@ -103,6 +133,12 @@ a:hover { text-decoration: underline; }
 .site-nav a:hover {
     background-color: #f6f8fa;
     color: #0366d6;
+}
+
+.warning strong {
+    color: #c5ae00;
+    display: inline-block;
+    margin-right: 0.5rem;
 }
 
 footer {
