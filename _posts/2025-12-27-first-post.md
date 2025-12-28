@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 初めてのGitHub Pages
+excerpt: "GitHub PagesとJekyllを使ってブログを開設したお話。" 
 date: 2025-12-27
 last_modified_at: 2025-12-28
 ---
@@ -26,7 +27,7 @@ Jekyllを使用することで、ヘッダーやフッターなどの共通部�
 {% endraw %}
 ## 各ファイルの役割
 ### _config.yml
-ここではサイト名や使用するテーマを定義します。
+　ここではサイト名や使用するテーマを定義します。
 
 {% raw %}
 ```yaml
@@ -37,7 +38,7 @@ remote_theme: pages-themes/cayman  # 初めはGitHubの公式テーマを使う�
 {% endraw %}
 
 ### _layout/default.html
-このファイルにはヘッダーやフッターなど、どのページでも表示したい共通部分を書きます。
+　このファイルにはヘッダーやフッターなど、どのページでも表示したい共通部分を書きます。
 {% raw %}`{{ content }}`{% endraw %}の部分に記事の内容が流し込まれます。  
 {% raw %}
 ```html
@@ -65,7 +66,7 @@ remote_theme: pages-themes/cayman  # 初めはGitHubの公式テーマを使う�
 {% endraw %}
 
 ### index.html
-トップページは、_posts/にある記事を自動でリストアップするようにします。
+　トップページは、_posts/にある記事を自動でリストアップするようにします。
 
 {% raw %}
 ```html
@@ -108,13 +109,12 @@ title: Home
 ```
 {% endraw %}
 
-{% raw %}   
-  **Memo:**`index.html`は`_layouts/default.html`の`{{}}`内に埋め込まれるので`<html>`タグや`<head>`タグ、`<body>`タグを書く必要はありません。
-{% endraw %}
-### _posts/2025-12-27-first-post.md
-ようやく記事本文です。ファイル名は`YYYY-MM-DD-title.md`にします。
+  
+**Memo:**`index.html`は`_layouts/default.html`の{% raw %} `{{}}`{% endraw %}内に埋め込まれるので`<html>`タグや`<head>`タグ、`<body>`タグを書く必要はありません。
 
-{% raw %}
+### _posts/2025-12-27-first-post.md
+　ようやく記事本文です。ファイル名は`YYYY-MM-DD-title.md`にします。
+
 ```markdown
 ---
 layout: default
@@ -122,8 +122,10 @@ title: タイトル名
 ---
 ここから記事を書きます。
 ```
-{% endraw %}
-**Memo:**本文を執筆する際に注意する点があり、コードブロックに`{{ }}`を記述する場合は`{% raw %}`と`{% endraw %}`で囲む必要があります。これを忘れるとJekyllが実行する命令と勘違いしてエラーを起こします。
+
+<div class="warning">
+  <strong>Warning:</strong>本文を執筆する際に注意する点があり、コードブロックに{% raw %}`{{ }}`{% endraw %}を記述する場合は{% raw %}`{% raw %}`と`{% endraw %}`で囲む必要があります。これを忘れるとJekyllが実行する命令と勘違いしてエラーを起こします。
+</div>
 
 ## まとめ
-Jakyllを導入したことで、あとはMarkdownで記事を執筆しPushするだけでブログが更新されます。
+　Jakyllを導入したことで、あとはMarkdownで記事を執筆しPushするだけでブログが更新されます。さらに詳しい内容は[リポジトリ](https://github.com/LEON-72/LEON-72.github.io)に書きます。（予定）
