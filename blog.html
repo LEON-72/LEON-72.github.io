@@ -1,0 +1,42 @@
+---
+layout: default
+title: Blog
+---
+
+<h1 style="font-size: 2rem; font-weight: 500; margin-bottom: 1rem;">Blog</h1>
+<p style="color: var(--secondary-text); margin-bottom: 3rem;">技術ブログというよりは成長日記</p>
+
+<h2 style="font-size: 1.5rem; font-weight: 500; margin-bottom: 2rem;">最新の記事</h2>
+<div class="posts-grid">
+{% for post in site.posts limit: 3 %}
+<article class="post-preview">
+    <span class="post-category green">Blog</span>
+    <h3><a href="{{ post.url | relative_url }}" style="color: var(--main-text);">{{ post.title }}</a></h3>
+    <p class="post-date">
+        {{ post.date | date: "%Y/%m/%d" }}
+        {% if post.last_modified_at %}
+            （更新: {{ post.last_modified_at | date: "%m/%d" }}）
+        {% endif %}
+    </p>
+    <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+    <a href="{{ post.url | relative_url }}" style="font-size: 0.9rem;">記事を読む →</a>
+</article>
+{% endfor %}
+</div>
+
+<hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+<h2 style="font-size: 1.5rem; font-weight: 500; margin-bottom: 2rem;">以前の記事</h2>
+<ul style="list-style: none; padding: 0;">
+    {% for post in site.posts offset: 3 %}
+    <li style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
+        <span class="post-date" style="margin-right: 1rem;">
+            {{ post.date | date: "%Y/%m/%d" }}
+            {% if post.last_modified_at %}
+                <span style="font-size: 0.85em;">(更新: {{ post.last_modified_at | date: "%m/%d" }})</span>
+            {% endif %}
+        </span>
+        <a href="{{ post.url | relative_url }}" style="font-size: 1.05rem;">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ul>

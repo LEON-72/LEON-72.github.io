@@ -1,39 +1,112 @@
 ---
 layout: default
-title: Home
+title: Top Page
 ---
 
-<h1>こんにちは！GitHub Pages へようこそ</h1>
-<p>技術ブログというよりは成長日記</p>
+<section class="profile-section">
+    <h2 class="section-title">PROFILE</h2>
+    <div class="section-content">
+        <p class="profile-name">Reon Hirobe</p>
+        <p class="profile-subtitle">Application Developer</p>
+        <p class="profile-description">
+            プロフィール画像や自己紹介をここに記載します。
+            経歴や現在の職業、興味のある分野について簡潔に説明してください。
+        </p>
+    </div>
+</section>
 
-<h2>最新の記事</h2>
-{% for post in site.posts limit: 1 %}
-<article class="post-preview">
-    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-    <small style="color: #6a737d;">
-        作成日: {{ post.date | date: "%Y/%m/%d" }}
-        {% if post.last_modified_at %}
-            （更新日: {{ post.last_modified_at | date: "%Y/%m/%d" }}）
-        {% endif %}
-    </small>
-    <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
-    <a href="{{ post.url | relative_url }}">記事を読む →</a>
-</article>
-{% endfor %}
+<section class="skill-section">
+    <h2 class="section-title">SKILL</h2>
+    <div class="section-content">
+        <h3 class="subsection-title">Programming</h3>
+        <table class="skill-table">
+            <tbody>
+                <tr>
+                    <td>JavaScript</td>
+                    <td class="duration">5年</td>
+                    <td class="rating">★★★★★</td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td class="duration">3年</td>
+                    <td class="rating">★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>HTML/CSS</td>
+                    <td class="duration">6年</td>
+                    <td class="rating">★★★★★</td>
+                </tr>
+            </tbody>
+        </table>
 
-<hr style="border: 0; border-top: 1px solid #e1e4e8; margin: 3rem 0;">
+        <h3 class="subsection-title">Framework</h3>
+        <table class="skill-table">
+            <tbody>
+                <tr>
+                    <td>React</td>
+                    <td class="duration">3年</td>
+                    <td class="rating">★★★★☆</td>
+                </tr>
+                <tr>
+                    <td>Vue.js</td>
+                    <td class="duration">2年</td>
+                    <td class="rating">★★★★☆</td>
+                </tr>
+            </tbody>
+        </table>
 
-<h2>以前の記事</h2>
-<ul style="list-style: none; padding: 0;">
-    {% for post in site.posts offset: 1 %}
-    <li style="margin-bottom: 1rem;">
-        <span style="color: #6a737d; margin-right: 1rem;">
-            {{ post.date | date: "%Y/%m/%d" }}
-            {% if post.last_modified_at %}
-                <span style="font-size: 0.8em;">(更新日: {{ post.last_modified_at | date: "%m/%d" }})</span>
-            {% endif %}
-        </span>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
+        <h3 class="subsection-title">Tools</h3>
+        <table class="skill-table">
+            <tbody>
+                <tr>
+                    <td>Git / GitHub</td>
+                    <td class="duration">5年</td>
+                    <td class="rating">★★★★★</td>
+                </tr>
+                <tr>
+                    <td>VS Code</td>
+                    <td class="duration">4年</td>
+                    <td class="rating">★★★★★</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="works-section">
+    <h2 class="section-title">WORKS</h2>
+    <div class="section-content">
+        <div class="work-item">
+            <h3>Project Title 1</h3>
+            <p class="work-category">Category: Web Development</p>
+            <p class="work-description">
+                プロジェクトの説明をここに記載します。何を作ったのか、どのような技術を使ったのか、どのような工夫をしたのかなどを記載してください。
+            </p>
+        </div>
+
+        <div class="work-item">
+            <h3>Project Title 2</h3>
+            <p class="work-category">Category: Design</p>
+            <p class="work-description">
+                プロジェクトの説明をここに記載します。何を作ったのか、どのような技術を使ったのか、どのような工夫をしたのかなどを記載してください。
+            </p>
+        </div>
+
+        <div class="work-item work-item-last">
+            <h3>Project Title 3</h3>
+            <p class="work-category">Category: Full Stack</p>
+            <p class="work-description">
+                プロジェクトの説明をここに記載します。何を作ったのか、どのような技術を使ったのか、どのような工夫をしたのかなどを記載してください。
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="contact-section">
+    <h2 class="section-title">CONTACT</h2>
+    <div class="contact-links">
+        <a href="mailto:your-email@example.com">Email</a>
+        <a href="https://github.com/your-username">GitHub</a>
+        <a href="https://twitter.com/your-username">Twitter</a>
+    </div>
+</section>
