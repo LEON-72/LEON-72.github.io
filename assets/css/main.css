@@ -1,46 +1,321 @@
 :root {
-    --bg-color: #ffffff;
-    --main-text: #24292e;
-    --accent-blue: #0366d6;
-    --border-color: #e1e4e8;
-    --code-bg: #f6f8fa;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 浮き出し効果のための影 */
+    --header-bg: #2d2d2d;
+    --header-text: #c3c3c3;
+    --bg-color: #343434;
+    --main-text: #F6F6F4;
+    --secondary-text: #718096;
+    --accent-pink: #fbb6ce;
+    --accent-blue: #009dff;
+    --accent-purple: #d6bcfa;
+    --accent-green: #9ae6b4;
+    --border-color: #e2e8f0;
+    --card-bg: #2d2d2d;
+    --code-bg: #333333;
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #f8f9fa; /* 背景はごく薄いグレー */
+    background-color: var(--bg-color);
     color: var(--main-text);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.7;
-    margin: 0;
+    line-height: 1.8;
 }
 
+/* Container */
 .container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
-    background-color: var(--bg-color); /* コンテンツエリアを白に */
+    padding: 0 32px;
 }
 
 main.container {
     min-height: 100vh;
+    padding: 48px 32px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    margin: 16px auto;
+    max-width: 900px;
 }
 
-/* ヘッダー */
-header {
+/* Header */
+.site-header {
+    background-color: var(--header-bg);
+    border-bottom: 0px solid var(--border-color);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 30px;
+}
+
+.header-title a {
+    color: var(--header-text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.header-nav {
+    display: flex;
+    gap: 40px;
+    margin: 0;
+}
+
+.header-nav a {
+    color: var(--header-text);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Section Common */
+.profile-section,
+.skill-section,
+.works-section {
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
+}
+
+.contact-section {
+    padding: 48px 0;
+}
+
+.section-title {
+    font-size: 50px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
     text-align: center;
 }
 
-header h1 a {
-    color: var(--main-text);
-    text-decoration: none;
-    font-weight: 800;
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-/* コードブロック (浮き出し効果) */
+/* Profile Section */
+.profile-section {
+    text-align: center;
+}
+
+.profile-name {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.profile-subtitle {
+    color: var(--secondary-text);
+    margin-bottom: 24px;
+}
+
+.profile-description {
+    color: var(--secondary-text);
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+/* Skill Section */
+.subsection-title {
+    font-size: 19px;
+    font-weight: 500;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.skill-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+
+.skill-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.skill-table td {
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.skill-table .duration {
+    text-align: right;
+    color: var(--secondary-text);
+}
+
+.skill-table .rating {
+    text-align: right;
+}
+
+/* Works Section */
+.works-section {
+    text-align: left;
+}
+
+.work-item {
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.work-item-last {
+    margin-bottom: 40px;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.work-item h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.work-category {
+    color: var(--secondary-text);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.work-description {
+    color: var(--secondary-text);
+    line-height: 1.7;
+}
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.contact-links a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 48px 0;
+    color: var(--secondary-text);
+    border-top: 1px solid var(--border-color);
+    margin-top: 64px;
+    font-size: 14px;
+}
+
+/* Blog - Grid Layout */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+/* Blog - Post Preview Card */
+article.post-preview {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 32px;
+}
+
+article.post-preview h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--main-text);
+    font-weight: 500;
+}
+
+article.post-preview .post-date {
+    color: var(--secondary-text);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+article.post-preview .post-excerpt {
+    color: var(--secondary-text);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Blog - Category Tags */
+.post-category {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.post-category.pink {
+    background-color: var(--accent-pink);
+    color: #702459;
+}
+
+.post-category.blue {
+    background-color: var(--accent-blue);
+    color: #2a4365;
+}
+
+.post-category.purple {
+    background-color: var(--accent-purple);
+    color: #44337a;
+}
+
+.post-category.green {
+    background-color: var(--accent-green);
+    color: #22543d;
+}
+
+/* Blog - Post Content */
+.post-content {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.post-content h2 {
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.post-content p {
+    margin-bottom: 20px;
+}
+
+/* Code Blocks */
 pre, code {
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
@@ -48,67 +323,52 @@ pre, code {
 pre {
     background-color: var(--code-bg);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1.2rem;
-    overflow-x: auto;
-    /* 浮き出すような影の設定 */
-    box-shadow: var(--shadow);
-    margin: 1.5rem 0;
-}
-
-/* 記事プレビュー（トップページ） */
-article.post-preview {
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-article.post-preview:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
-}
-
-a { color: var(--accent-blue); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* ヘッダー全体のスタイル */
-.site-header {
-    background-color: #ffffff;
-    border-bottom: 1px solid #e1e4e8;
-    padding: 1rem 0;
-    /* position: sticky; */ /*スクロールしても上に固定される*/
-    top: 0;
-    z-index: 1000;
-}
-
-/* ナビゲーションの帯 */
-.site-nav {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    gap: 2rem; /* リンク間の間隔 */
-}
-
-.site-nav a {
-    color: #24292e;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
     border-radius: 6px;
-    transition: background-color 0.2s;
+    padding: 20px;
+    overflow-x: auto;
+    margin: 24px 0;
 }
 
-.site-nav a:hover {
-    background-color: #f6f8fa;
-    color: #0366d6;
+code {
+    background-color: var(--code-bg);
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
 }
 
-footer {
-    text-align: center;
-    padding: 3rem 0; /* 上下に余白を持たせる */
-    color: #6a737d;   /* 文字色を少し薄くしてバランスを整える */
-    border-top: 1px solid var(--border-color); /* 必要に応じて上部に線を追加 */
-    margin-top: 2rem;
+/* Warning Box */
+.warning {
+    background-color: #fffaf0;
+    border-left: 3px solid var(--accent-pink);
+    padding: 20px;
+    border-radius: 4px;
+    margin: 24px 0;
+}
+
+.warning strong {
+    color: var(--main-text);
+    font-weight: 600;
+}
+
+/* Links */
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    main.container {
+        padding: 32px 16px;
+    }
+    
+    .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .header-nav {
+        flex-direction: column;
+        gap: 16px;
+    }
 }
